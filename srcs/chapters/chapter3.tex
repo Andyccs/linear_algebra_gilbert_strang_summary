@@ -37,6 +37,145 @@
 
 \subsection{The Nullspace of $A$: Solving $A\mathbf{x} = 0$}
 
+Example of Elimination from $A$ to rref($A$): Reduced Row Echelon Form $R_0$
+
+\[
+    A =
+    \begin{bmatrix}
+        1 & 7  & 3 & 35 \\
+        2 & 14 & 6 & 70 \\
+        2 & 14 & 9 & 97
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 7 & 3 & 35 \\
+        0 & 0 & 0 & 0  \\
+        0 & 0 & 3 & 27
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 7 & 0 & 8  \\
+        0 & 0 & 0 & 0  \\
+        0 & 0 & 3 & 27
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 7 & 0 & 8 \\
+        0 & 0 & 1 & 9 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix} = R_0
+\]
+
+\noindent Removing the zero rows produce $R$
+\[
+    R_0 =
+    \begin{bmatrix}
+        1 & 7 & 0 & 8 \\
+        0 & 0 & 1 & 9 \\
+        0 & 0 & 0 & 0
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 7 & 0 & 8 \\
+        0 & 0 & 1 & 9
+    \end{bmatrix}
+    = R
+\]
+
+\noindent Three allowed row operations in elimination from $A$ to $R_0$:
+\begin{itemize}
+    \item Subtract a multiple of one row from another row (below or above)
+    \item Divide a row by its first nonzero entry
+    \item Exchange rows
+\end{itemize}
+
+\noindent By permuting the columns of $R$, we get $R = [\ I\ F\ ]$
+\[
+    R =
+    \begin{bmatrix}
+        1 & 7 & 0 & 8 \\
+        0 & 0 & 1 & 9
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 7 & 8 \\
+        0 & 1 & 0 & 9
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        I & F
+    \end{bmatrix} P_C
+\]
+
+\noindent Another way to look at the matrix $A = CR$: is
+\begin{align*}
+    R & = \begin{bmatrix}
+              I & F
+          \end{bmatrix}                                                  \\
+    A & = C \begin{bmatrix}
+                I & F
+            \end{bmatrix}                                                \\
+      & = \begin{bmatrix}
+              C & CF
+          \end{bmatrix}                                                  \\
+      & = \begin{bmatrix}
+              \text{independent columns of A} & \text{dependent columns of A}
+          \end{bmatrix}
+\end{align*}
+
+\noindent In the $R_0$ example above, columns 2 and columns 4 give the ``free variable''.
+The free variables allow use to compute the special solutions for $R_0
+    \mathbf{x} = 0$ or $A \mathbf{x} = 0$
+\begin{itemize}
+    \item Set $x_2 = 1$ and $x_4 = 0$, we get $s_1 = (-7, 1, 0, 0)$
+    \item Set $x_2 = 0$ and $x_4 = 1$, we get $s_2 = (-8, 0, -9, 1)$
+    \item All $\mathbf{x}$ that have $A \mathbf{x} = 0$ are $\mathbf{x}_n = c_1 s_1 + c_2
+              s_2$, which is also the nullspace of $A$ or $\mathbf{N}(A)$ in $\mathbb{R}^n$
+    \item Elimination from $A$ to $R_0$ to $R$ does not change the nullspace
+          $\mathbf{N}(A) = \mathbf{N}(R_0) = \mathbf{N}(R)$
+\end{itemize}
+
+\noindent Block elimination in three steps:
+\[
+    P_R A P_C =
+    \begin{bmatrix}
+        W & H \\
+        J & K
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        I & W^{-1}H \\
+        J & K
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        I & W^{-1}H \\
+        0 & 0
+    \end{bmatrix}
+    = R_0
+\]
+\[
+    P_R A P_C =
+    \begin{bmatrix}
+        W \\
+        J
+    \end{bmatrix}
+    W^{-1}
+    \begin{bmatrix}
+        W & H
+    \end{bmatrix}
+\]
+\begin{itemize}
+    \item $W$ is $r$ by $r$ invertible matrix
+    \item The block satisfy $JW^{-1}H = K$
+\end{itemize}
+
 \subsection{The Complete Solution to $A\mathbf{x} = \mathbf{b}$}
 
 \subsection{Independence, Basis, and Dimension}
