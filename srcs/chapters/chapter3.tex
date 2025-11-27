@@ -178,6 +178,46 @@ The free variables allow use to compute the special solutions for $R_0
 
 \subsection{The Complete Solution to $A\mathbf{x} = \mathbf{b}$}
 
+Example elimination from $A \mathbf{x} = \mathbf{b}$ to $R_0 \mathbf{x} =
+    \mathbf{d}$
+
+\[
+    \begin{bmatrix}
+        A & \mathbf{b}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 3 & 0 & 2 & 1 \\
+        0 & 0 & 1 & 4 & 6 \\
+        1 & 3 & 1 & 6 & 7
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 3 & 0 & 2 & 1 \\
+        0 & 0 & 1 & 4 & 6 \\
+        0 & 0 & 0 & 0 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        R_0 & \mathbf{d}
+    \end{bmatrix}
+\]
+\begin{itemize}
+    \item For a solution to exist, zero rows in $R_0$ must also be zero in $d$
+    \item The particular solution $\mathbf{x}_p$ has all free variables equal to zero. In
+          the example above, $x_p = (1, 0, 6, 0)$
+    \item The complete solution to $A\mathbf{x} = \mathbf{b}$ is $\mathbf{x} =
+              \mathbf{x}_p + \mathbf{x}_n$
+\end{itemize}
+
+\noindent The four possibilities for linear equations depend on the rank $r$:
+\begin{itemize}
+    \item $r = m$ and $r = n$, square an invertible, $A\mathbf{x} = \mathbf{b}$ has 1 solution
+    \item $r = m$ and $r < n$, square an invertible, $A\mathbf{x} = \mathbf{b}$ has $\infty$ solution
+    \item $r < m$ and $r = n$, square an invertible, $A\mathbf{x} = \mathbf{b}$ has 0 or 1 solution
+    \item $r < m$ and $r < n$, square an invertible, $A\mathbf{x} = \mathbf{b}$ has 0 or $\infty$ solution
+\end{itemize}
+
 \subsection{Independence, Basis, and Dimension}
 
 \subsection{Dimensions of the Four Subspaces}
